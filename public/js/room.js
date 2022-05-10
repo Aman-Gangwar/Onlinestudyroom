@@ -573,6 +573,11 @@ socket.on('remove peer', sid => {
     delete connections[sid];
 })
 
+
+
+
+
+
 sendButton.addEventListener('click', () => {
     const msg = messageField.value;
     messageField.value = '';
@@ -598,6 +603,17 @@ socket.on('message', (msg, sendername, time) => {
     </div>
 </div>`
 });
+
+
+
+
+
+
+
+
+
+
+
 
 videoButt.addEventListener('click', () => {
 
@@ -720,3 +736,4 @@ whiteboardButt.addEventListener('click', () => {
 cutCall.addEventListener('click', () => {
     location.href = '/';
 })
+

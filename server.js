@@ -34,7 +34,8 @@ io.on('connect', socket => {
             socket.to(roomid).emit('message', `${username} joined the room.`, 'Bot', moment().format(
                 "h:mm a"
             ));
-            io.to(socket.id).emit('join room', rooms[roomid].filter(pid => pid != socket.id), socketname, micSocket, videoSocket);
+            io.to(socket.id).emit('join room',
+             rooms[roomid].filter(pid => pid != socket.id), socketname, micSocket, videoSocket);
         }
         else {
             rooms[roomid] = [socket.id];
@@ -59,7 +60,8 @@ io.on('connect', socket => {
     })
 
     socket.on('video-offer', (offer, sid) => {
-        socket.to(sid).emit('video-offer', offer, socket.id, socketname[socket.id], micSocket[socket.id], videoSocket[socket.id]);
+        socket.to(sid).emit('video-offer', offer, socket.id, socketname[socket.id]
+        , micSocket[socket.id], videoSocket[socket.id]);
     })
 
     socket.on('video-answer', (answer, sid) => {
@@ -108,5 +110,7 @@ io.on('connect', socket => {
     });
 })
 
-
-server.listen(PORT, () => console.log(`Server is up and running on port ${PORT} i.e http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`Server is up and running on port ${PORT} 
+i.e http://localhost:${PORT}
+https://onlinestudyroom.herokuapp.com/`
+));
